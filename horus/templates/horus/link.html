@@ -1,0 +1,31 @@
+
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+{% block content %} 
+
+    {% for l in link %}
+    <form>
+        <main class="px-10">
+            <h5>Tu observador esta listo, <br>recuerde que el link solo funcionara una vez.</h5><br>
+            <a id="link1" href="{% url 'horus' l.id %}" class="alert-link">127.0.0.1:8000{% url 'horus' l.id %}</a><br>
+            <button data-clipboard-action="copy" class="btn btn-primary btn-sm" data-clipboard-target="#link1">Copiar link</button><br><br>
+            <h5>¿Que datos obtendre cuando mi  objetivo haga click al link?</h5>
+            <p class="lead">Horus extraera los siguientes datos: Ip, Pais, Estado/departamento, Ciudad, Codigo Postal, Latitud, Longitud, Proveedor Internet, User agent. Estos datos podra observalos en el apartado de "Observados" en  "Mi Perfil" </p>
+            <h5>Consejo</h5>
+            <p class="lead">Un consejo util para usted, para que haya mas posibilidades de que su victima entre al link "observador" aconsejo utilizar acortadores como Bitly</p>
+        </main>
+    </form>  
+    {% endfor %}
+{% endblock %}
+
+{% block script %}
+<script src="https://clipboardjs.com/dist/clipboard.min.js"></script>
+<script src="{% static 'js/redi.js' %}"></script>
+{% endblock script %}
+

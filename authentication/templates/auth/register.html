@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+{% block content %} 
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{form.errors.username}}
+            {{form.errors.email}}
+            {{form.errors.password1}}
+            {{form.errors.password2}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+        <label for="id_username" >Usuario</label><br>
+        <input type="text" name="username" id="id_username" style="border-radius: 5px;" placeholder="JsonAndrx" required><br>
+        <label for="id_email">Correo</label><br>
+        <input type="email" name="email" id="id_email" style="border-radius: 5px;" placeholder="json@andrx.com" required><br>
+        <label for="id_password1">Contraseña</label><br>
+        <input type="password" name="password1" id="id_password1" style="border-radius: 5px;" placeholder="*********" required><br>
+        <label for="id_password2">Confirmar Contraseña</label><br>
+        <input type="password" name="password2" id="id_password2" style="border-radius: 5px;" placeholder="*********" required><br>
+        <br><button type="submit" class="btn btn-primary btn-sm">Registrar</button>
+    </form>
+{% endblock %}
+
+{% block script %}
+
+{% endblock script %}

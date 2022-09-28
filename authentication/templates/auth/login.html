@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <a>Usuario o contraseña incorrecta. Intente nuevamente</a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endif %}
+        <main class="px-10">
+            <lable>Usuario</lable><br>
+            <input type="text" name="username" id="id_username" style="border-radius: 5px;" required placeholder="JsonAndrx"><br>
+            <label>Password</label><br>
+            <input type="password" name="password" id="id_password" style="border-radius: 5px;" required placeholder="***********"><br><bR>
+            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+        </main>
+        <p class="mt-auto text-white-50">No tienes una cuenta? <a href="{% url 'register' %}" class="text-white" >Crear cuenta</a></p>        
+    </form>
+    
+    
+{% endblock %}
+
+{% block script%}
+
+
+{% endblock script%}

